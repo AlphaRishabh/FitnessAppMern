@@ -1,0 +1,71 @@
+/* Styling the calculator container */
+.calorie-calculator {
+    text-align: center;
+    color: #e6d5d5; /* Color for the container text */
+    opacity: 0.9; /* Adds some transparency */
+  }
+  
+  /* Styling the form text */
+  .styled-form label {
+    color: #38da18; /* Set a color for form labels */
+    font-weight: bold;
+    opacity: 0.8; /* Adds transparency */
+  }
+  
+  /* Styling form inputs */
+  .styled-form input {
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  /* Style for the button */
+  .styled-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .styled-form button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+  }
+  
+
+  /* Styling the table */
+.styled-form table {
+    width: 100%; /* Ensure table spans the full width */
+    color: white; /* Set text color to white */
+    background-color: rgba(0, 0, 0, 0.8); /* Add a dark background with some transparency */
+    border: 1px solid white; /* White border for the table */
+    border-radius: 5px; /* Rounded corners */
+    margin-top: 20px;
+  }
+  
+  /* Styling table headers */
+  .styled-form table th {
+    color: white;
+    background-color: #007bff; /* Blue header background */
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  /* Styling table cells */
+  .styled-form table td {
+    color: white; /* Text color */
+    padding: 10px;
+    text-align: center;
+    border: 1px solid white; /* Cell borders */
+  }
+  
+  /* Add hover effect for rows */
+  .styled-form table tr:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Slight highlight on hover */
+  }
+  
+  
