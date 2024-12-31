@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { useUpdateUserMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import Loader from "./Loader";
+import "./Profile.css";
 
 const UpdateProfile = ({ userInfo, dispatch }) => {
   const [name, setName] = useState(userInfo.name);
@@ -34,53 +35,61 @@ const UpdateProfile = ({ userInfo, dispatch }) => {
   };
 
   return (
-    <Form onSubmit={submitHandler}>
-      <Form.Group className="my-2" controlId="name">
-        <Form.Label>Name</Form.Label>
-        <Form.Control
-          type="name"
-          placeholder="Enter Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        ></Form.Control>
-      </Form.Group>
+    <div className="update-profile-container">
+      <Form onSubmit={submitHandler} className="update-profile-form shadow p-4 rounded">
+        <h2 className="text-center mb-4 head2" >Update Profile</h2>
 
-      <Form.Group className="my-2" controlId="email">
-        <Form.Label>Email Address</Form.Label>
-        <Form.Control
-          type="email"
-          placeholder="Enter Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-        ></Form.Control>
-      </Form.Group>
+        <Form.Group className="my-3" controlId="name">
+          <Form.Label>Name</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter Name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className="input-style"
+          ></Form.Control>
+        </Form.Group>
 
-      <Form.Group className="my-2" controlId="password">
-        <Form.Label>Password</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Enter Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        ></Form.Control>
-      </Form.Group>
+        <Form.Group className="my-3" controlId="email">
+          <Form.Label>Email Address</Form.Label>
+          <Form.Control
+            type="email"
+            placeholder="Enter Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="input-style"
+          ></Form.Control>
+        </Form.Group>
 
-      <Form.Group className="my-2" controlId="confirmPassword">
-        <Form.Label>Confirm Password</Form.Label>
-        <Form.Control
-          type="password"
-          placeholder="Enter Confirm Password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        ></Form.Control>
-      </Form.Group>
+        <Form.Group className="my-3" controlId="password">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Enter Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="input-style"
+          ></Form.Control>
+        </Form.Group>
 
-      {isLoading && <Loader />}
+        <Form.Group className="my-3" controlId="confirmPassword">
+          <Form.Label>Confirm Password</Form.Label>
+          <Form.Control
+            type="password"
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            className="input-style"
+          ></Form.Control>
+        </Form.Group>
 
-      <Button type="submit" variant="primary" className="mt-3 mb-3">
-        Update
-      </Button>
-    </Form>
+        {isLoading && <Loader />}
+
+        <Button type="submit" variant="primary" className="w-100 mt-3">
+          Update
+        </Button>
+      </Form>
+    </div>
   );
 };
 

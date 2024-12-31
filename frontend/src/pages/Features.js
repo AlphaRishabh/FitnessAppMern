@@ -72,21 +72,20 @@ const FeaturesPage = () => {
 
   return (
     <>
-      <div
-        className="featurescontain"
-        style={{
-          backgroundImage: `url(${BgImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          margin: "0",
-          maxWidth: "100%",
-          maxHeight: "100%",
-          paddingBottom: "190px",
-          paddingTop: "50px",
-        }}
-      >
-        <h2 className="text-center mb-4">App Features</h2>
-        <Row className="justify-content-center g-4">
+        <Row className="justify-content-center g-4 featurescontain"
+         style={{
+           backgroundImage: `url(${BgImage})`,
+           backgroundSize: "cover",
+           backgroundPosition: "center",
+           margin: "0",
+           maxWidth: "100%",
+           maxHeight: "100%",
+           paddingBottom: "200px",
+         }}
+        >
+
+         <h2 className="text-center mb-4">App Features</h2>
+
           {features.map((feature, index) => (
             <Col key={index} xs={12} md={6} lg={6} className="feature-card-wrapper">
               <FeatureCard
@@ -98,7 +97,6 @@ const FeaturesPage = () => {
             </Col>
           ))}
         </Row>
-      </div>
       <Footer />
     </>
   );

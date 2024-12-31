@@ -63,7 +63,8 @@ const Header = () => {
     <Navbar
       expand="md"
       style={{
-        backgroundColor: "#2a2438", // Dark purple background
+    color: "#1c162c",
+    backgroundColor: "#150f23", // Dark purple background
         color: "#fff", // White font
         width: "100%",
         opacity: "0.9", // Slightly transparent

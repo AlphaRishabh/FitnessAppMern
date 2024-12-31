@@ -14,7 +14,6 @@ h2 {
 }
 
 .featurescontain {
-    position: relative;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

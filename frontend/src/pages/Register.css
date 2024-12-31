@@ -6,3 +6,9 @@
     transition: .2s;
     color: antiquewhite;
 }
+.formcontrol:focus {
+    border-bottom: 2px solid #d4c570;
+    transition: .2s;
+    background-color: rgb(7, 4, 23);
+    color: #D1D1D4;
+}

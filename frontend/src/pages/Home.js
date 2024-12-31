@@ -12,10 +12,10 @@ const Home = () => {
           backgroundImage: `url(${BgImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
-          
           padding: "0",
           margin: "0",
           maxWidth: "100%",
+          paddingTop: "40px",
         }}
       >
         <HeroBanner />

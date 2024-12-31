@@ -147,7 +147,7 @@
     transition: transform 0.3s ease-out, opacity 0.3s ease-out;
   }
   
-  .custom-search-button {
+  .custom-search-btn {
     margin-top: 15px;
     display: inline-block;
   }

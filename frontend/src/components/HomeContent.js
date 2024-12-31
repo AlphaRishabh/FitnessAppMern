@@ -7,20 +7,19 @@ const HomeContent = () => {
   return (
     <div
       style={{
-        margin: "0",
-        padding: "0",
+        paddingBottom:"100px",
         color: "white",
         overflowX: "hidden", // Prevent horizontal overflow
       }}
     >
-      <Row className="mb-4" style={{ marginTop: "300px" }}>
+      <Row className="mb-4" style={{ marginTop: "200px" }}>
         <Col className="text-center">
           <h2>BREAK THE LIMITS!!</h2>
         </Col>
       </Row>
 
       <Row className="justify-content-center">
-        <Col md={10} lg={2}>
+        <Col md={0} lg={2}>
           <div className="gallery" style={{ marginTop: "50px" }}>
             <span style={{ "--i": 1 }}>
               <img
@@ -71,22 +70,6 @@ const HomeContent = () => {
               />
             </span>
           </div>
-        </Col>
-      </Row>
-
-      <Row className="align-items-center mt-5">
-        <Col md={2}>
-          <Button
-            variant="success"
-            className="me-2"
-            as={Link}
-            to="/pages/register"
-          >
-            Register
-          </Button>
-          <Button variant="outline-primary" as={Link} to="/pages/login">
-            Login
-          </Button>
         </Col>
       </Row>
     </div>

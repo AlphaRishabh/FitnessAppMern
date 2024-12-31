@@ -3,6 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { useUpdateWaterIntakeMutation } from "../slices/usersApiSlice";
 import { Box } from "@mui/material";
+import "./WaterIntakeLog.css";
 
 const WaterIntakeLog = () => {
   const [currentDate, setCurrentDate] = useState(
@@ -44,12 +45,14 @@ const WaterIntakeLog = () => {
     setLoggedWater(parseFloat(value));
   };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
+  const handleUpdate = async (increment) => {
     try {
+      const newTotalWater = increment
+        ? totalWater + loggedWater
+        : Math.max(0, totalWater - loggedWater); // Ensure totalWater doesn't go below 0
+
       const waterIntakeData = {
-        litersDrank: totalWater + loggedWater,
+        litersDrank: newTotalWater,
       };
 
       // Save the water intake to local storage
@@ -84,10 +87,10 @@ const WaterIntakeLog = () => {
           <h2 className="water-intake-log__total">
             Water to be consumed for today: {totalWater} litres
           </h2>
-          <Form onSubmit={handleSubmit} className="water-intake-log__form">
+          <Form className="water-intake-log__form">
             <Form.Label
               className="water-intake-log__label"
-              htmlFor="totalWater"
+              htmlFor="loggedWater"
             >
               Log water consumed (in litres):
               <Form.Control
@@ -99,8 +102,19 @@ const WaterIntakeLog = () => {
                 className="water-intake-log__input"
               />
             </Form.Label>
-            <Button type="submit" className="water-intake-log__button mx-2">
+            <Button
+              type="button"
+              className="water-intake-log__button mx-2"
+              onClick={() => handleUpdate(true)}
+            >
               Add
+            </Button>
+            <Button
+              type="button"
+              className="water-intake-log__button mx-2"
+              onClick={() => handleUpdate(false)}
+            >
+              Subtract
             </Button>
           </Form>
         </div>

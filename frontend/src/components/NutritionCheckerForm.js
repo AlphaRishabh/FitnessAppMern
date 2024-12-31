@@ -56,8 +56,7 @@ const NutritionCheckerForm = () => {
   </div>
   <br></br>
   <Button
-    variant="outline-success"
-    className="custom-search-button"
+    className="custom-search-btn"
     onClick={handleSearchNutrition}
   >
     Get Nutrition

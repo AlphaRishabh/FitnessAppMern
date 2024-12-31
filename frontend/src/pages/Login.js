@@ -10,6 +10,7 @@ import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-toastify";
 import Loader from "../components/Loader";
 import fitnessBg from "../assets/images/fitnessbg.jpg";
+import "./Register.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -61,6 +62,8 @@ const Login = () => {
               placeholder="Enter Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+              className="formcontrol"
+
             />
           </Form.Group>
 
@@ -71,6 +74,8 @@ const Login = () => {
               placeholder="Enter Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              className="formcontrol"
+
             />
           </Form.Group>
 

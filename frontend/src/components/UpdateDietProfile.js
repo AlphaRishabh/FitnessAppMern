@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Form, Button, Table } from "react-bootstrap";
+import { Form, Button, Table, Card, Container, Row, Col } from "react-bootstrap";
 import { toast } from "react-toastify";
 import { useUpdateStatusMutation } from "../slices/usersApiSlice";
 import Loader from "./Loader";
@@ -134,112 +134,127 @@ const UpdateDietProfile = () => {
   };
 
   return (
-    <>
-      <Form onSubmit={submitHandler}>
-        <Form.Group className="my-2" controlId="height">
-          <Form.Label>Height (CM)</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter height"
-            value={height}
-            onChange={(e) => setHeight(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
+    <Container className="py-5">
+      <Row className="justify-content-center">
+        <Col md={8}>
+          <Card className="p-4 shadow-lg" style={{ borderRadius: "15px", backgroundColor: "#f8f9fa" }}>
+            <h2 className="text-center mb-4">
+              Update Diet Profile
+            </h2>
+            <Form onSubmit={submitHandler}>
+              <Form.Group className="mb-3" controlId="height">
+                <Form.Label>Height (CM)</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter height"
+                  value={height}
+                  onChange={(e) => setHeight(e.target.value)}
+                ></Form.Control>
+              </Form.Group>
 
-        <Form.Group className="my-2" controlId="weight">
-          <Form.Label>Weight (KG)</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter weight"
-            value={weight}
-            onChange={(e) => setWeight(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
+              <Form.Group className="mb-3" controlId="weight">
+                <Form.Label>Weight (KG)</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter weight"
+                  value={weight}
+                  onChange={(e) => setWeight(e.target.value)}
+                ></Form.Control>
+              </Form.Group>
 
-        <Form.Group className="my-2" controlId="goalWeight">
-          <Form.Label>Goal Weight (KG)</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter goal weight"
-            value={goalWeight}
-            onChange={(e) => setGoalWeight(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
+              <Form.Group className="mb-3" controlId="goalWeight">
+                <Form.Label>Goal Weight (KG)</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter goal weight"
+                  value={goalWeight}
+                  onChange={(e) => setGoalWeight(e.target.value)}
+                ></Form.Control>
+              </Form.Group>
 
-        <Form.Group className="my-2" controlId="age">
-          <Form.Label>Age</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter age"
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
+              <Form.Group className="mb-3" controlId="age">
+                <Form.Label>Age</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter age"
+                  value={age}
+                  onChange={(e) => setAge(e.target.value)}
+                ></Form.Control>
+              </Form.Group>
 
-        <Form.Group className="my-2" controlId="gender">
-          <Form.Label>Gender</Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter gender"
-            value={gender}
-            onChange={(e) => setGender(e.target.value)}
-          ></Form.Control>
-        </Form.Group>
+              <Form.Group className="mb-3" controlId="gender">
+                <Form.Label>Gender</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter gender"
+                  value={gender}
+                  onChange={(e) => setGender(e.target.value)}
+                ></Form.Control>
+              </Form.Group>
 
-        <Form.Group className="my-2" controlId="activityLevel">
-          <Form.Label>Activity Level</Form.Label>
-          <Form.Control
-            as="select"
-            value={activityLevel}
-            onChange={(e) => setActivityLevel(e.target.value)}
-          >
-            <option value="">Select activity level</option>
-            <option value="sedentary">SEDENTARY</option>
-            <option value="lightlyActive">LIGHTLY ACTIVE</option>
-            <option value="active">ACTIVE</option>
-            <option value="veryActive">VERY ACTIVE</option>
-          </Form.Control>
-        </Form.Group>
+              <Form.Group className="mb-3" controlId="activityLevel">
+                <Form.Label>Activity Level</Form.Label>
+                <Form.Control
+                  as="select"
+                  value={activityLevel}
+                  onChange={(e) => setActivityLevel(e.target.value)}
+                >
+                  <option value="">Select activity level</option>
+                  <option value="sedentary">SEDENTARY</option>
+                  <option value="lightlyActive">LIGHTLY ACTIVE</option>
+                  <option value="active">ACTIVE</option>
+                  <option value="veryActive">VERY ACTIVE</option>
+                </Form.Control>
+              </Form.Group>
 
-        <Form.Group className="my-2" controlId="goal">
-          <Form.Label>Goal</Form.Label>
-          <Form.Control
-            as="select"
-            value={goal}
-            onChange={(e) => setGoal(e.target.value)}
-          >
-            <option value="">Select goal</option>
-            <option value="Maintenance">Maintenance</option>
-            <option value="Cutting">Cutting</option>
-            <option value="Bulking">Bulking</option>
-          </Form.Control>
-        </Form.Group>
+              <Form.Group className="mb-3" controlId="goal">
+                <Form.Label>Goal</Form.Label>
+                <Form.Control
+                  as="select"
+                  value={goal}
+                  onChange={(e) => setGoal(e.target.value)}
+                >
+                  <option value="">Select goal</option>
+                  <option value="Maintenance">Maintenance</option>
+                  <option value="Cutting">Cutting</option>
+                  <option value="Bulking">Bulking</option>
+                </Form.Control>
+              </Form.Group>
 
-        {isLoading && <Loader />}
+              {isLoading && <Loader />}
 
-        <Button type="submit" variant="primary" className="mt-3">
-          Update Diet Profile
-        </Button>
-      </Form>
-      <Table striped bordered hover className="mt-3">
-        <thead>
-          <tr>
-            <th>Calories</th>
-            <th>Protein (Grams)</th>
-            <th>Fat (Grams)</th>
-            <th>Carbs (Grams)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{Math.round(calories)}</td>
-            <td>{Math.round(protein)} Grams of Protein</td>
-            <td>{Math.round(fat)} Grams of Fats</td>
-            <td>{Math.round(carbs)} Grams of Carbs</td>
-          </tr>
-        </tbody>
-      </Table>
-    </>
+              <Button type="submit" variant="success" className="w-100 mt-3">
+                Update Profile
+              </Button>
+            </Form>
+          </Card>
+
+          <Card className="mt-4 p-3 shadow-lg" style={{ borderRadius: "15px" }}>
+            <h4 className="text-center mb-3" style={{ color: "#495057" }}>
+              Nutrition Summary
+            </h4>
+            <Table striped bordered hover>
+              <thead>
+                <tr>
+                  <th>Calories</th>
+                  <th>Protein</th>
+                  <th>Fat</th>
+                  <th>Carbs</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{Math.round(calories)}</td>
+                  <td>{Math.round(protein)} g</td>
+                  <td>{Math.round(fat)} g</td>
+                  <td>{Math.round(carbs)} g</td>
+                </tr>
+              </tbody>
+            </Table>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

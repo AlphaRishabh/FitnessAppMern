@@ -1,42 +1,68 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Typography } from "@mui/material";
 import CalorieCalculator from "../components/CalorieCalculator";
 import FormContainer from "../components/FormContainer";
 import Footer from "../components/Footer";
-import Bgimage from "../assets/images/bgimage.jpg";
+import BgImage from "../assets/images/bgimage.jpg";
 
 const BMRCalculator = () => {
+  const [currentView, setCurrentView] = useState("form"); // State to manage the current view
+
+  const handleViewChange = (view) => {
+    setCurrentView(view); // Update the view state (form, results, or supplements)
+  };
+
+  const getHeadingText = () => {
+    switch (currentView) {
+      case "form":
+        return "BMR Calculator";
+      case "results":
+        return "BMR Results";
+      case "supplements":
+        return "Required Supplements";
+      default:
+        return "BMR Calculator";
+    }
+  };
+
   return (
-    <><>
-      <FormContainer
+    <>
+      <div
         style={{
-        backgroundImage: `url(${Bgimage})`,
-        padding: "0",
-        margin: "0",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        maxWidth: "100%",
-      }}
+          backgroundImage: `url(${BgImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          padding: "0",
+          margin: "0",
+          maxWidth: "100%",
+          maxHeight: "100%",
+          paddingBottom: "20px",
+        }}
       >
-        <Box
-          sx={{
-            padding: "1rem",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "column",
-            height: "68vh",
-            
-          }}
-        >
-          <Typography variant="h4" sx={{ marginBottom: "1rem" }}>
-            <h2>BMR Calculator</h2>
-                      </Typography>
-          <CalorieCalculator />
-        </Box>
-      </FormContainer>
-    </><Footer /></>
+        <FormContainer>
+          <Box
+            sx={{
+              padding: "2rem",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+              height: "68vh",
+            }}
+          >
+            {/* Dynamic heading based on current view */}
+            <Typography variant="h4" sx={{ marginBottom: "1rem" }}>
+              <h2>{getHeadingText()}</h2>
+            </Typography>
+
+            {/* Pass the function to update view to the CalorieCalculator component */}
+            <CalorieCalculator onViewChange={handleViewChange} />
+          </Box>
+        </FormContainer>
+      </div>
+
+      <Footer />
+    </>
   );
 };
 

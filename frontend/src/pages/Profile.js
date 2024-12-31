@@ -8,6 +8,10 @@ import UpdateProfile from "../components/UpdateProfile";
 import UpdateDietProfile from "../components/UpdateDietProfile";
 import MealPlan from "../components/MealPlan";
 import WaterIntake from "../components/WaterIntake";
+import Footer from "../components/Footer";
+import BgImage from "../assets/images/bgimage.jpg";
+
+
 
 const Profile = () => {
   const dispatch = useDispatch();
@@ -18,8 +22,20 @@ const Profile = () => {
   }, [userInfo, dispatch]);
 
   return (
-    <Row>
-      <Col md={3}>
+<>
+     <Row style={{
+       backgroundImage: `url(${BgImage})`,
+       backgroundSize: "cover",
+       backgroundPosition: "center",
+       
+       padding: "0",
+       margin: "0",
+       maxWidth: "100%",
+       maxHeight: "100%",
+       paddingBottom: "350px",
+       paddingTop: "20px",
+     }}>
+      <Col md={2}>
         <ProfileSidebar userInfo={userInfo} dispatch={dispatch} />
       </Col>
       <Col md={9}>
@@ -38,6 +54,8 @@ const Profile = () => {
         </Routes>
       </Col>
     </Row>
+    <Footer />
+</>
   );
 };
 
